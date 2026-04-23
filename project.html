@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Project — The Vault</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" id="siteLogo">THE <span>VAULT</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Library</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <section class="project-header halftone" id="projectHeader">
+    <div class="project-header-inner">
+      <div class="project-cover-wrap">
+        <div class="project-cover" id="projectCover"></div>
+      </div>
+      <div class="project-meta">
+        <div class="project-badges" id="projectBadges"></div>
+        <h1 class="project-title" id="projectTitle">Loading…</h1>
+        <p class="project-desc" id="projectDesc"></p>
+        <div class="project-genre-tags" id="projectGenres"></div>
+        <div class="project-stats" id="projectStats"></div>
+        <div class="project-actions" id="projectActions"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Continue Banner -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="continue-banner hidden" id="continueBanner">
+      <div class="continue-info">
+        <p class="continue-label">📖 Continue Reading</p>
+        <p class="continue-title" id="continueTitle"></p>
+        <p style="font-size:.85rem;color:var(--text-muted);margin-top:4px;" id="continueDetail"></p>
+      </div>
+      <a href="#" class="btn btn-primary btn-small" id="continueBtn">Resume →</a>
+    </div>
+  </section>
+
+  <!-- Chapter List -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">All <span>Chapters</span></h2>
+    </div>
+    <div class="chapter-list" id="chapterList"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p class="footer-logo">THE <span>VAULT</span></p>
+    <p class="footer-text">Created by Ololade Suberu. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Library</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </footer>
+
+  <div class="modal-overlay" id="shareModal">
+    <div class="modal" style="position:relative;">
+      <button class="modal-close" id="shareClose">✕</button>
+      <h3>Share</h3>
+      <div class="share-options">
+        <button class="share-btn" data-platform="twitter"><span class="share-icon">𝕏</span> Twitter / X</button>
+        <button class="share-btn" data-platform="whatsapp"><span class="share-icon">💬</span> WhatsApp</button>
+        <button class="share-btn" data-platform="facebook"><span class="share-icon">📘</span> Facebook</button>
+        <button class="share-btn" data-platform="reddit"><span class="share-icon">🔴</span> Reddit</button>
+      </div>
+      <div class="copy-link">
+        <input type="text" id="shareUrl" readonly>
+        <button class="btn btn-primary btn-small" id="copyLink">Copy</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
+      App.renderProjectPage();
+    });
+  </script>
+</body>
+</html>

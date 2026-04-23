@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About — The Vault</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" id="siteLogo">THE <span>VAULT</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Library</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <div class="about-hero halftone">
+    <div class="about-avatar" id="authorAvatar">O</div>
+    <h1 class="about-name">Ololade Suberu</h1>
+    <p class="about-role">Creator &amp; Storyteller</p>
+  </div>
+
+  <div class="about-content">
+    <div class="about-section animate-in">
+      <h2>The Vision</h2>
+      <p><strong>The Vault</strong> is a personal publishing platform — a home for original manga, graphic novels, light novels, and comics, all created by Ololade Suberu. Every story here is crafted to be experienced, not just consumed.</p>
+      <p class="mt-2">From action-packed graphic novels to immersive light novels, this library grows with every new chapter. All stories are free to read, share, and enjoy.</p>
+    </div>
+    <div class="about-section animate-in">
+      <h2>The Creator</h2>
+      <p>Ololade Suberu is a storyteller, artist, and visionary dedicated to building worlds that resonate. With a passion for visual and written storytelling, every project in The Vault is a labor of love.</p>
+    </div>
+    <div class="about-section animate-in">
+      <h2>How to Read</h2>
+      <p><strong>Browse</strong> the <a href="index.html">Library</a> to discover all available projects. Click any project to see its chapters, then dive in. Your reading progress is saved automatically in your browser — just come back anytime and pick up where you left off.</p>
+      <p class="mt-2"><strong>Image projects</strong> (manga, graphic novels): Use arrow keys or swipe left/right to turn pages. <strong>Light novels</strong>: Simply scroll to read.</p>
+    </div>
+    <div class="social-links" id="socialLinks"></div>
+    <div class="text-center mt-4">
+      <a href="index.html" class="btn btn-primary">📖 Browse the Library</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="footer-logo">THE <span>VAULT</span></p>
+    <p class="footer-text">Created by Ololade Suberu. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Library</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </footer>
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{App.init();App.renderSocialLinks('socialLinks');});</script>
+</body>
+</html>

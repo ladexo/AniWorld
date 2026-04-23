@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Vault — Original Manga, Light Novels & Graphic Novels</title>
+  <meta name="description" content="A curated library of original stories. Read manga, light novels, and graphic novels — all free.">
+  <meta property="og:title" content="The Vault">
+  <meta property="og:description" content="Original manga, light novels, and graphic novels — free to read online.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" id="siteLogo">THE <span>VAULT</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Library</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero halftone speed-lines">
+    <p class="hero-badge">Original Stories by Ololade Suberu</p>
+    <h1 class="hero-title">THE <span class="highlight">VAULT</span></h1>
+    <p class="hero-tagline" id="heroTagline">Manga · Light Novels · Graphic Novels — all original, all free.</p>
+  </section>
+
+  <!-- Filters -->
+  <section class="section" style="padding-top:40px;padding-bottom:0;">
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="manga">Manga</button>
+      <button class="filter-btn" data-filter="graphic-novel">Graphic Novel</button>
+      <button class="filter-btn" data-filter="light-novel">Light Novel</button>
+      <button class="filter-btn" data-filter="comic">Comic</button>
+      <button class="filter-btn" data-filter="webtoon">Webtoon</button>
+    </div>
+  </section>
+
+  <!-- Project Grid -->
+  <section class="section">
+    <div class="project-grid stagger" id="projectGrid">
+      <!-- Rendered by JS -->
+    </div>
+    <p class="text-center mt-4" id="emptyState" style="display:none;color:var(--text-muted);">No projects match that filter.</p>
+  </section>
+
+  <footer class="site-footer">
+    <p class="footer-logo">THE <span>VAULT</span></p>
+    <p class="footer-text">Created by Ololade Suberu. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Library</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </footer>
+
+  <!-- Share Modal -->
+  <div class="modal-overlay" id="shareModal">
+    <div class="modal" style="position:relative;">
+      <button class="modal-close" id="shareClose">✕</button>
+      <h3>Share</h3>
+      <div class="share-options">
+        <button class="share-btn" data-platform="twitter"><span class="share-icon">𝕏</span> Twitter / X</button>
+        <button class="share-btn" data-platform="whatsapp"><span class="share-icon">💬</span> WhatsApp</button>
+        <button class="share-btn" data-platform="facebook"><span class="share-icon">📘</span> Facebook</button>
+        <button class="share-btn" data-platform="reddit"><span class="share-icon">🔴</span> Reddit</button>
+      </div>
+      <div class="copy-link">
+        <input type="text" id="shareUrl" readonly>
+        <button class="btn btn-primary btn-small" id="copyLink">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      App.init();
+      App.renderProjectGrid('projectGrid');
+      App.initFilters('filterBar', 'projectGrid', 'emptyState');
+    });
+  </script>
+</body>
+</html>

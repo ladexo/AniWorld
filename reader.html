@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Reading — The Vault</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <style>body.reader-mode{overflow-x:hidden;}</style>
+</head>
+<body class="reader-mode">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" id="siteLogo">THE <span>VAULT</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Library</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <div class="reader-container">
+    <!-- Toolbar -->
+    <div class="reader-toolbar">
+      <div style="display:flex;align-items:center;gap:12px;overflow:hidden;">
+        <a href="#" id="backToProject" style="color:var(--text-muted);font-size:1.2rem;flex-shrink:0;">←</a>
+        <div style="overflow:hidden;">
+          <p class="reader-chapter-title" id="readerTitle">Loading…</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="reader-page-info" id="readerPageInfo">—</span>
+        <div class="reader-toolbar-actions">
+          <button class="toolbar-btn" id="bookmarkBtn" title="Bookmark">🔖</button>
+          <button class="toolbar-btn" id="shareBtn" title="Share">↗</button>
+          <!-- Font size controls for light novels -->
+          <button class="toolbar-btn hidden" id="fontDownBtn" title="Smaller text">A-</button>
+          <button class="toolbar-btn hidden" id="fontUpBtn" title="Larger text">A+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="reader-progress">
+      <div class="reader-progress-fill" id="progressFill" style="width:0%;"></div>
+    </div>
+
+    <!-- IMAGE READER (manga, graphic-novel, comic, webtoon) -->
+    <div class="reader-viewport" id="imageReader">
+      <div class="reader-nav prev">
+        <button class="nav-arrow" id="prevBtn" aria-label="Previous page">◀</button>
+      </div>
+      <div class="reader-page" id="readerPage">
+        <div class="page-placeholder"><span class="page-num">1</span><span class="page-label">Loading…</span></div>
+      </div>
+      <div class="reader-nav next">
+        <button class="nav-arrow" id="nextBtn" aria-label="Next page">▶</button>
+      </div>
+    </div>
+
+    <!-- TEXT READER (light-novel) -->
+    <div class="text-reader hidden" id="textReader">
+      <div class="text-reader-content" id="textContent">
+        <p style="color:var(--text-muted);">Loading chapter…</p>
+      </div>
+    </div>
+
+    <!-- Footer Nav -->
+    <div class="reader-footer">
+      <div class="reader-footer-nav">
+        <a href="#" class="btn btn-secondary btn-small" id="prevChapterBtn">← Prev Chapter</a>
+      </div>
+      <div class="reader-footer-nav">
+        <a href="#" class="btn btn-primary btn-small" id="nextChapterBtn">Next Chapter →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share Modal -->
+  <div class="modal-overlay" id="shareModal">
+    <div class="modal" style="position:relative;">
+      <button class="modal-close" id="shareClose">✕</button>
+      <h3>Share This Chapter</h3>
+      <div class="share-options">
+        <button class="share-btn" data-platform="twitter"><span class="share-icon">𝕏</span> Twitter / X</button>
+        <button class="share-btn" data-platform="whatsapp"><span class="share-icon">💬</span> WhatsApp</button>
+        <button class="share-btn" data-platform="facebook"><span class="share-icon">📘</span> Facebook</button>
+        <button class="share-btn" data-platform="reddit"><span class="share-icon">🔴</span> Reddit</button>
+      </div>
+      <div class="copy-link">
+        <input type="text" id="shareUrl" readonly>
+        <button class="btn btn-primary btn-small" id="copyLink">Copy</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{App.init();App.initReader();});</script>
+</body>
+</html>
